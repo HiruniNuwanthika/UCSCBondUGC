@@ -1,23 +1,81 @@
 import axios from "axios";
 import React, {Component} from "react";
 import RecordsList from './RecordsList';
+import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class View extends Component{
     constructor(props){
         super(props);
-        this.state = {ruser: [], suretyData:[]};
+        this.onChangeSearchTermUniName = this.onChangeSearchTermUniName.bind(this);
+        this.onChangeSearchTermStatus = this.onChangeSearchTermStatus.bind(this);
+        this.onChangeSearchTermLastName = this.onChangeSearchTermLastName.bind(this);
+        this.changeFilter = this.changeFilter.bind(this);
+        this.state = {
+            initialUserList:[],
+            ruser: [], 
+            suretyData:[], 
+            searchTermUniName:'',
+            searchTermLastName:'',
+            searchTermStatus:''};
     }
 
-    componentDidMount(){
+    componentWillMount(){
         axios.get('http://localhost/ugc/view.php')
         .then(response=>{
-            this.setState({ ruser: response.data})
+            this.setState({
+                 ruser: response.data,
+                 initialUserList: response.data
+             })
         })
-        
         .catch(function(error){
             console.log(error);
         })
     }
+
+    changeFilter(){
+            let userlist = this.state.initialUserList;
+            this.setState({ ruser:
+            userlist.filter((val) =>{
+
+                if((this.state.searchTermUniName=="") 
+                && (this.state.searchTermLastName=="") 
+                && (this.state.searchTermStatus=="")){
+                   // console.log('val without filter==>');
+                   // console.log(val);
+                    return val;
+                }
+                else if((val.university.toLowerCase().includes(this.state.searchTermUniName.toLowerCase())) 
+                && (this.state.searchTermLastName=="")
+                && (this.state.searchTermStatus=="")){
+                    return val;
+                }
+                else if((val.lName.toLowerCase().includes(this.state.searchTermLastName.toLowerCase())) 
+                && (this.state.searchTermUniName=="")
+                && (this.state.searchTermStatus=="")){
+                    //console.log('val with filter==>');
+                    //console.log(val);
+                    return val;
+                }
+                else if((val.status.toLowerCase().includes(this.state.searchTermStatus.toLowerCase())) 
+                && (this.state.searchTermUniName=="")
+                && (this.state.searchTermLastName=="")){
+                    //console.log('val with filter==>');
+                    //console.log(val);
+                    return val;
+                }
+               /* else if((val.status.toLowerCase().includes(this.state.searchTermStatus.toLowerCase())) 
+                ||  (val.lName.toLowerCase().includes(this.state.searchTermLastName.toLowerCase()))
+                || (val.university.toLowerCase().includes(this.state.searchTermUniName.toLowerCase()))){
+                    //console.log('val with filter==>');
+                    //console.log(val);
+                    return val;
+                }*/
+            })
+        })
+    }
+
 
     usersList(){
         return this.state.ruser.map(function(object,i){
@@ -25,11 +83,54 @@ export default class View extends Component{
         });
     }
 
+    onChangeSearchTermUniName(e){
+        this.setState({
+            searchTermUniName: e.target.value
+        },()=>{
+            this.changeFilter();
+        });
+    }
 
+    onChangeSearchTermLastName(e){
+        this.setState({
+            searchTermLastName: e.target.value
+        },()=>{
+            this.changeFilter();
+        });
+    }
+
+    onChangeSearchTermStatus(e){
+        this.setState({
+            searchTermStatus: e.target.value
+        },()=>{
+            this.changeFilter();
+        });
+    }
     render(){
         return(
             <div>
                 <br/>
+
+                <div className="dada">
+                    <div className="dada-in">
+                        <FontAwesomeIcon icon={faSearch} style={{ marginRight:"3"}}/>
+                        <label style={{marginRight:"15px"}}>University</label> 
+                        <input type="text" value={this.state.searchTermUniName} onChange={this.onChangeSearchTermUniName}/> 
+                    </div>
+                    <div className="dada-in">
+                        <FontAwesomeIcon icon={faSearch} style={{ marginRight:"3"}}/>
+                        <label style={{marginRight:"15px"}}>Last Name</label>
+                        <input type="text" value={this.state.searchTermLastName} onChange={this.onChangeSearchTermLastName}/>
+                    </div>
+                    
+                    <div className="dada-in">
+                        <FontAwesomeIcon icon={faSearch} style={{ marginRight:"3"}}/>
+                        <label style={{marginRight:"15px"}}>Status</label>
+                        <input type="text" value={this.state.searchTermStatus} onChange={this.onChangeSearchTermStatus}/>
+                    </div>
+                       
+                </div>
+
                 <h3 align="center" style={{fontStyle:"oblique", fontFamily:"serif", fontSize:"22px"}}>List of Bond Agreements</h3>
                 <table className="table table-striped table-bordered table-hover " >
                     <thead style={{ textAlign:"center",backgroundColor:"#9dc7f2", fontFamily:"monospace", whiteSpace:"nowrap", fontSize:"16px"}}>

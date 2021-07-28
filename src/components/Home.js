@@ -4,6 +4,7 @@ import {MyContext} from '../contexts/MyContext';
 import Insert from './Insert';
 import Edit from './Edit';
 import View from './View';
+import Reports from './Reports'
 import {Redirect} from 'react-router';
 
 // Importing the Login & Register Componet
@@ -33,7 +34,10 @@ function Home(){
             </li>
             <li className="nav-item">
               <Link to={'/view'} className="nav-link">View All Agreements</Link>
-            </li>      
+            </li>     
+            <li className="nav-item">
+              <Link to={'/reports'} className="nav-link">Reports</Link>
+            </li>  
           
             <button className="logoutBtn" onClick={logoutUser}>Logout</button>                       
           </ul>
@@ -45,6 +49,7 @@ function Home(){
         <Route exact path='/insert' component={Insert}/>
         <Route path='/edit/:id' component={Edit}/>
         <Route path='/view' component={View}/>
+        <Route path='/reports' component={Reports}/>
       </Switch>
       </div>
     </Router>

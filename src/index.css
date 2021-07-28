@@ -102,3 +102,23 @@ code {
   margin: auto;
   background: rgb(223, 236, 240);
 }
+.charts{
+  font-family: monospace;
+  font-style:normal;
+}
+
+.dada{
+  margin-top: 20px;
+  height: 100px;
+  width:100%;
+  font-size: 15px;
+  font-family: monospace;
+  font-style:normal;
+  display: flex;
+
+}
+
+
+.dada-in{
+  margin-right: 50px;
+}
