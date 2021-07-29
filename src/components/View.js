@@ -16,6 +16,7 @@ export default class View extends Component{
             initialUserList:[],
             ruser: [], 
             suretyData:[], 
+            allStatus:[],
             searchTermUniName:'',
             searchTermLastName:'',
             searchTermStatus:''};
@@ -28,6 +29,18 @@ export default class View extends Component{
                  ruser: response.data,
                  initialUserList: response.data
              })
+        })
+
+        axios.get('http://localhost/ugc/getAllStatus.php')
+        .then(response => {
+                this.setState({
+                    allStatus:response.data  
+                });
+            
+            
+            //console.log('surety------>')
+            //console.log(this.state.suretyData);
+
         })
         .catch(function(error){
             console.log(error);
@@ -46,6 +59,12 @@ export default class View extends Component{
                    // console.log(val);
                     return val;
                 }
+                else if((val.university.toLowerCase().includes(this.state.searchTermUniName.toLowerCase())) 
+                && (val.lName.toLowerCase().includes(this.state.searchTermLastName.toLowerCase()))
+                && (val.status.toLowerCase()==(this.state.searchTermStatus.toLowerCase()))){
+                    return val;
+                }
+                /*
                 else if((val.university.toLowerCase().includes(this.state.searchTermUniName.toLowerCase())) 
                 && (this.state.searchTermLastName=="")
                 && (this.state.searchTermStatus=="")){
@@ -126,7 +145,15 @@ export default class View extends Component{
                     <div className="dada-in">
                         <FontAwesomeIcon icon={faSearch} style={{ marginRight:"3"}}/>
                         <label style={{marginRight:"15px"}}>Status</label>
-                        <input type="text" value={this.state.searchTermStatus} onChange={this.onChangeSearchTermStatus}/>
+                        <select className="dropdown" onChange={this.onChangeSearchTermStatus} >
+                            <option>Select status</option>
+                            {this.state.allStatus.map(item =>(    
+                                <option key={item.id} value={item.status}>
+                                    {item.status}
+                                </option>
+                            ))}
+                            {console.log(this.state.allStatus)}
+                        </select>
                     </div>
                        
                 </div>
