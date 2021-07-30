@@ -96,43 +96,99 @@ export default class Edit extends Component{
                 status:response.data.status,
                 lastUpdatedOn:this.state.lastUpdatedOn,
                 universities:[
+                    { name: 'University of Colombo', faculties: [ 
+                        {name: 'Faculty of Arts  ', departments: ['Demography', 'Geography', 'Economics','English','History',
+                        'Political Science','Iternational Relations','Sinhala','Sociology','Buddhist Studies','English Language Teaching']},
+                        {name: 'Faculty of  Education', departments: ['Eductional Psycology', ' Humanities Education','Science  & Technology  Education','Social Science Education']},
+                        {name: 'Faculty of Law', departments: ['Commercial Law', 'Private & Comparative  Law','Public and  International Law']},
+                        {name: 'Faculty of Management and Finance', departments: ['Accounting','Business Economics','Finance','Human Resources Management','Management  & Organization Studies','Marketing','International Business','Hospitality & Leisure Management']},
+                        {name: 'Faculty of Medicine', departments: ['Anatomy','Biochemistry & Molecular Biology','Clinical Medicine','Community Medicine','Forensic Medicine & Toxicology',
+                    'Microbiology','Obstetrics & Gynaecology','Paediatrics','Parasitology','Pathology','Pharmacology',
+                    'Physiology','Psychiatry ','Surgery','Medical Humanities','Medical Education','Allied Health Sciences','Anaesthesiology & Critical Care','Family Medicine','Medical Technology']},
+                        {name:'Faculty of Science', departments:['Chemistry','Mathematics','Nuclear Science','Physics','Statistics','Plant Science','Zoology & Environment Sciences']},
+                        {name:'Faculty of Technology',departments:['Technology']},
+                        {name:'Sripalee Campus', departments: ['Mass Media', 'Performing Arts']}
+                    ]},
+                    {name:'Postgraduate Institute of Medicine', faculties:[
+                        {name:'Boards of study',
+                        departments:['Anaesthesiology','Basic Medical Sciences','Clinical Oncology','Community Medicine','Dermatology','Family Medicine & General Practice ',
+                        'Forensic Medicine','Medical Administration', 'Medicine','Microbiology','Multi Disciplinary Study Courses','Obs & Gynaecology',
+                        'Ophthalmology','Paediatrics','Pathology','Psychiatry','Radiology','Sports Medicine','Surgery','Venereology ','Orthopaedic Surgery']},
+                    ]},
+                    {name:'Postgraduate Institute of Indigenouns Mdeicine', faculties:[
+                        {name:'Boards of study',
+                        departments:['Ayurveda Medicine','Siddha Medicine','Unani Medicine']} 
+                    ]},
+                    {name:'Institute of Human Resource Advancement', faculties:[
+                        {name:'Boards of study',
+                        departments:['Extension Programs','Human Resource Education Programs']}   
+                    ]},
+                    {name:'Institute of Indegenous Medicine', faculties:[
+                        {name:'Ayurveda Section', departments:['Deshiya Chikitsa','Moulika Siddhantha','Dravyaguna  Vignana','Nidana Chikitsa']},
+                        {name:'Unani Section', departments:['Illmul Adviya','Kulliyath']}
+                    ]},
+                    {name:'University of Colombo School of Computing', faculties:[
+                       {name:'Academic', departments:['Communication & Media Technology','Computation  & Intelligence Systems ']} 
+                    ]},
+                    {name:'Institute for agro-technology & rural sciences', faculties:[
+                        {name:'Departments of Study', departments:['Agro-technology', 'Entrepreneurship, Agri-business and Rural Sciences', 'Food Technology']}
+                    ]},
                     { name: 'University of Peradeniya', faculties: [ 
-                        {name: 'Agriculture', departments: ['Soil Science', 'Agricultural Extension', 'Agricultural Engineering','Agri. Econ & b.Mgt','Agriculturl Biology',
+                        {name: 'Faculty of Agriculture', departments: ['Soil Science', 'Agricultural Extension', 'Agricultural Engineering','Agri. Econ & b.Mgt','Agriculturl Biology',
                         'Animal Science','Crop Science','Food Science and Tech.']},
-                        {name: 'Arts', departments: ['Economics & Stat.', 'Arabic & Islamic Civilization','Socialogy','Geograpghy','Law','Sinhala','Pali & Buddhism Std.',
-                    'Political Science','History','English Language Teaching Unit']},
+                        {name: 'Faculty of Arts', departments: ['Economics & Stat.', 'Arabic & Islamic Civilization','Socialogy','Geograpghy','Law','Sinhala','Pali & Buddhism Std.',
+                    'Political Science','History','English Language Teaching Unit','Archaeology']},
                         {name: 'Allied Health Science', departments: ['Nursing', 'Radiography','Basic Science','Physiotheraphy','Medcal Laboratory Sciences','Pharmacy']},
-                        {name: 'Dental Sciences', departments: ['Basic Sciences']},
+                        {name: 'Dental Sciences', departments: ['Basic Sciences', 'Community Dental Health','Oral & Maxillofacial Surgery','Oral Medicine & Periodontology','Oral Pathology','Prosthetic Dentistry','Restorative Dentistry']},
                         {name: 'Management', departments: ['Mgt. Studies','Marketing Mgt.','Operations Mgt.','Business Finance','Human Resource Mgt.']},
-                        {name: 'Medicine', departments: ['Anatomy','Physiology','Medicine','Surgery']},
-                        {name: 'Science', departments: ['Mathematics','Stat. & Computer','Zoology','Molecular Biology & Biothech.','Chemistry']},
-                        {name: 'Vet. Med. & Animal Sc.', departments: ['Ver. Clinical Sciences','Basic Vet. Sciences','Farm Animal Prod. & Health','']},
-                        {name: 'Dental Sciences', departments: ['Basic Sciences']},
-                        {name: 'Dental Sciences', departments: ['Basic Sciences']},
-                        {name: 'Engineering', departments: ['Engineering Mathematics', 'Civil Eng.','Eng. Management','Manufacturing & Industrial Eng.','Mechanical Eng.','']} 
-                    ] },
-                    { name: 'University of Kelaniya', faculties: [
-                         {name: 'Medicine', departments: ['Disability Studies', 'Pharmacology','Psychiatry','Public Health']},
-                         {name: 'Computing & Tech.', departments: ['Software Eng.','Dean office']},
-                         {name: 'Commerce & Mgt. Studies', departments: ['Commerce & Fin. Mgt.', 'Marketing Mgt.','Finance', 'Accountancy','HRM']},
-                         {name: 'Humanities', departments: ['Modern Languages','Hindi','DELT']},
-                         {name: 'Science', departments: ['Mathematics','Industrial Mgt.','Software eng. Teaching unit', 'Stat & computer Science','Zoology & Environmental Mgt',
-                        'Microbiology']},
-                         {name: 'Social Science', departments: ['Geography','Political Science','Social Stat.','Economics','INTS','Sport Sce.']},
-                         {name: 'Humanities', departments: ['Modern Languages','Hindi','DELT']},                    
-                        ] },
-                    { name: 'University of Jayawaradnapura', faculties: [
-                         {name: 'Agriculture', departments: ['Agrinomy', 'Animal Science','Agricultural Chemistry','Agricultural Eng.','Agricultural Biology','Agricultural Economics']}, 
-                         {name: 'Siddha Medicine', departments: ['Unit of Siddha Medicine']}, 
-                         {name: 'Engineering', departments: ['Electrical & Electronic Eng.','Computer Eng.','Civil Eng.','Inter-Disciplinary Studies']},
-                         {name: 'Management Studies and Commerce', departments: ['Accounting','Commerce']}, 
-                         {name: 'Science', departments: ['Computer Science','Physics','Chemistry','Mathematics & Stat.','Zoology','Fisheries']},
-                         {name: 'Technology', departments: ['Engineering Technology','Bio Systems Tech.']}, 
-                         {name: 'Allied Health Science', departments: ['Medical Laboratory Science']},
-                         {name: 'Arts', departments: ['Fine Arts','Law','Geography','Translation Studies','History']},
-                         {name: 'Medicine', departments: ['Physiology','Pharmacology','Surgery','Microbiology','Biochemistry']},
-                         {name: 'Library', departments: ['Library']}
-                        ] }
+                        {name: 'Faculty of Medicine', departments: ['Anaesthesiology & Critical Care ','Anatomy','Biochemistry','Community Medicine','Forensic Medicine','Medicine',
+                    'Microbiology ','Obstetrics & Gynaecology','Paediatrics','Parasitology','Pathology','Pharmacology','Physiology','Psychiatry','Surgery']},
+                        {name: 'Faculty of Science', departments: ['Botany','Chemistry','Geology','Mathematics','Chemistry','Molecular Biology & Biotechnology','Physics']},
+                        {name: 'Faculty of Veterinary Medicine & Animal Science', departments: ['Ver. Clinical Sciences','Basic Vet. Sciences','Farm Animal Prod. & Health','Vet. Pathobiology','Vet. Public Health & Pharmacology']},
+                        {name: 'Faculty of Engineering', departments: ['Chemical & Process Engineering ','Civil Engineering','Computer  Sciences','Engineering Mathematics',
+                    'Engineering Management','Mechanical Engineering','Manufacturing & Industiral Engineering ',]} 
+                    ]},
+                    {name:'Postgrduate Institute of Agriculture', faculties:[
+                        {name:'Borad of Study', departments:['Agricultural Biology','Agricultural Economics','Agricultural Engineering','Agricultural Extension','Animal Science','Bio-Statistics']}
+                    ]},
+                    {name:'Postgraduate Institute of Science', faculties:[
+                        {name:'Boards of Study', departments:['Biochemistry and Molecular Biology','Chemical Sciences','Earth Sciences','Environmental Science','Mathematics','Physics']}
+                    ]},
+                    {name:'Postgraduate Institute of Humanities and Social Sciences', faculties:[
+                        {name:'Boards of Study', departments:['Social Sciences','Languages and Literature Studies','Economics and Management']}
+                    ]},
+                    {name:'Postgraduate Institute of Medial Sciences', faculties:[
+                        {name:'Boards of Study', departments:['Clinical Sciences','Basic Medical Sciences']}
+                    ]},
+                    {name: 'University of Sri Jayawarenepura', faculties:[
+                        {name:'Faculty of Applied Science', departments:['Botany','Chemistry','Food Science & Technology','Forestry & Environmental  Science', 'Mathematics','Physics']},
+                        {name:'Faculty of Humanities & Social Sciences', departments:['Economics','English & Linguistics','Geography','History & Archaeology','Pali & Buddhist Studies','Political Science']},
+                        {name:'Faculty of Management Studies & Commerce', departments:['Business Administration','Decision Sciences','Commerce','Decision Sciences','Entrepreneurship','Estate Management & Valuation','Human Resource Management']},
+                        {name:'Faculty of Medical Sciences', departments:['Anatomy','Medicine','Biochemistry','Community  Medicine','Family  Medicine','Forensic Medicine','Medicine','Medical  Education & Health Sciences','Microbiology ','Obs. and Gynaecology']},
+                        {name:'Faculty of Technology', departments:['Information & Communication ','Science for Technology','Civil and Environmental Technology','Materials and Mechanical Technology','Technology']},
+                        {name:'Faculty of Engineering', departments:['Civil Engineering', 'Computer Engineering','Electrical and Electronic Engineering', 'Mechanical Engineering','Interdisciplinary Studies']},
+                        {name:'Faculty of Allied Health Sciences', departments:['Basic Sciences', 'Medical Laboratory Sciences ','Nursing & Midwifery ','Pharmacy & Pharmaceutical Sciences']}
+                    ]},
+                    {name:'Postgraduate Institute of Management', faculties:[
+                        {name:'Boards of Study', departments:['Business Administration','Banking and finance']}
+                    ]},
+                    {name: 'University of Kelaniya', faculties:[
+                        {name:'Faculty of Humanities', departments:['English','Fine Arts','Hindi','Modern Languages', 'Pali and Buddhist Studies','Linguistics']},
+                        {name:'Faculty of Commerce & Management Studies', departments:['Accountancy','Finance','Geography','Human Resource Management','Commerce & Financial  Management','Marketing Management']},
+                        {name:'Faculty of Medicine', departments:['Anatomy','Medicine','Biochemistry and clinincal chemistry','Paediatrics','Medical Microbology','Parasitology','Family Mdecine']},
+                        {name:'Faculty of Social Sciences', departments:['Archaeology','Economics','Geography','History','Mass Communication',' Library & Information Science','Philosophy','Sports Science & Physical Education ','International Studies  ','Social Statistics ']},
+                        {name:'Faculty of Science', departments:['Plant & Molecular Biology','Chemistry','Industrial Management','Mathematics']},
+                        {name:'Faculty of Computing & Technology', departments:['Software Engineering', 'Computer Systems Engineering']},
+                    ]},
+                    {name:'Postgraduate Institute of Pali and Buddhist Studies', faculties:[
+                        {name:'Boards of Study', departments:['Budhdist Culture','Buddhist Literary Sources']}
+                    ]},
+                    {name:'Postgraduate Institute of Archaeology', faculties:[
+                        {name:'Boards of Study', departments:['Environmental Archeology','Heritage Studies']}
+                    ]},
+                    {name:'Gampaha Wickramarachchi Aurweda Institute', faculties:[
+                        {name:'Academic', departments:['Ayurveda Basic Principles','Kaumarabruthya & Stree Roga']}
+                    ]},
                 ]
             });
             let agmnNo = this.state.agreementNumber;

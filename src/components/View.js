@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, {Component} from "react";
 import RecordsList from './RecordsList';
-import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
