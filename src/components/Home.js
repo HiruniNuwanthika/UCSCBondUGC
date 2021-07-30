@@ -6,6 +6,7 @@ import Edit from './Edit';
 import View from './View';
 import Reports from './Reports'
 import {Redirect} from 'react-router';
+import UCSClogo from '../Images/UCSClogo.png';
 
 // Importing the Login & Register Componet
 import Login from './Login'
@@ -24,9 +25,11 @@ function Home(){
            
             <Router>
       <div className="container">
-
+      
       <nav className="navbar navbar-expand-lg navbar-light" style={{fontStyle:"oblique",fontFamily:"serif", backgroundColor:"#d9eafc", fontSize:"18 px"}}>
+        <img src={UCSClogo} alt="logo" style={{  display: 'flex', height:'100px'}} />
         <Link to={'/'} className="navbar-brand">Details of ongoing UGC Bonds/Agreements</Link>
+        
         <div className="collapse navbar-collapse"vid="navbar-SupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
