@@ -4,7 +4,7 @@ export const MyContext = createContext();
 
 // Define the base URL
 const Axios = axios.create({
-    baseURL: 'http://192.168.22.130/',
+    baseURL: 'http://localhost/ugc/',
 });
 
 class MyContextProvider extends Component{
