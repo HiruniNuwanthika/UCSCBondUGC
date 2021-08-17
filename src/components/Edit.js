@@ -71,7 +71,7 @@ export default class Edit extends Component{
 
     componentDidMount(){
         this.getCurrentDate();
-        axios.get('http://localhost/ugc/getById.php?id='+this.props.match.params.id)
+        axios.get('http://192.168.22.130/getById.php?id='+this.props.match.params.id)
         .then(response => {
             //console.log(response.data)
             this.setState({
@@ -193,7 +193,7 @@ export default class Edit extends Component{
             });
             let agmnNo = this.state.agreementNumber;
 
-            axios.get('http://localhost/ugc/getByAgreementNo.php?agreementNumber='+agmnNo)
+            axios.get('http://192.168.22.130/getByAgreementNo.php?agreementNumber='+agmnNo)
         .then(response => {
             let res = response.data;
             res.forEach((r) =>{
@@ -207,7 +207,7 @@ export default class Edit extends Component{
 
         })
 
-        axios.get('http://localhost/ugc/getReportDataByAgreementNo.php?agreementNumber='+agmnNo)
+        axios.get('http://192.168.22.130/getReportDataByAgreementNo.php?agreementNumber='+agmnNo)
         .then(response => {
           // console.log(response.data==[]);
           // console.log('response.data.length======>');
@@ -479,8 +479,8 @@ export default class Edit extends Component{
 
     
         axios.all([
-            axios.post('http://localhost/ugc/update.php?id='+this.props.match.params.id, obj1),
-            axios.post('http://localhost/ugc/updateSurety.php?agreementNumber='+this.state.agreementNumber,obj2)
+            axios.post('http://192.168.22.130/update.phpp?id='+this.props.match.params.id, obj1),
+            axios.post('http://192.168.22.130/updateSurety.php?agreementNumber='+this.state.agreementNumber,obj2)
            ]) 
             .then(res=>{
                 this.setState({alertMessage:'success', redirect:true
@@ -519,7 +519,7 @@ export default class Edit extends Component{
                     progressReportData:this.state.progressReportData
                 }
 
-                axios.post('http://localhost/ugc/insertProgressReport.php',obj)
+                axios.post('http://192.168.22.130/insertProgressReport.php',obj)
                 .then(response => {
                     console.log("Inserted Successfully")
                  }) 

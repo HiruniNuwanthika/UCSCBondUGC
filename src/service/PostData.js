@@ -1,5 +1,5 @@
 export function PostData(type, userData){
-    let BaseURL= 'http://localhost/ugc/restful.php';
+    let BaseURL= 'http://192.168.22.130/restful.php';
 
     return new Promise((resolve, reject) =>{
         fetch(BaseURL+type, {

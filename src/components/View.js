@@ -22,7 +22,7 @@ export default class View extends Component{
     }
 
     componentWillMount(){
-        axios.get('http://localhost/ugc/view.php')
+        axios.get('http://192.168.22.130/view.php')
         .then(response=>{
             this.setState({
                  ruser: response.data,
@@ -30,7 +30,7 @@ export default class View extends Component{
              })
         })
 
-        axios.get('http://localhost/ugc/getAllStatus.php')
+        axios.get('http://192.168.22.130/getAllStatus.php')
         .then(response => {
                 this.setState({
                     allStatus:response.data  

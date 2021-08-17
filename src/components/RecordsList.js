@@ -24,7 +24,7 @@ class RecordsList extends Component{
     }
     
     getSuretyData(agreementNo){
-        axios.get('http://localhost/ugc/getByAgreementNo.php?agreementNumber='+agreementNo)
+        axios.get('http://192.168.22.130/getByAgreementNo.php?agreementNumber='+agreementNo)
         .then(response => {
             //console.log(response.data);
              let res = response.data;
@@ -46,7 +46,7 @@ class RecordsList extends Component{
 
 
     delete(){
-        axios.get('http://localhost/ugc/delete.php?id='+this.props.obj.userId)
+        axios.get('http://192.168.22.130/delete.php?id='+this.props.obj.userId)
         .then(
             this.setState({redirect:true})
         )
@@ -76,7 +76,7 @@ class RecordsList extends Component{
     }
 
     getReportData(agreementNo){
-        axios.get('http://localhost/ugc/getReportDataByAgreementNo.php?agreementNumber='+agreementNo)
+        axios.get('http://192.168.22.130/getReportDataByAgreementNo.php?agreementNumber='+agreementNo)
         .then(response => {
             //console.log(response.data);
              let res = response.data;

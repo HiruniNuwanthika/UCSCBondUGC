@@ -20,7 +20,7 @@ const UniDataBarChart =() =>{
         let uniInactiveCount2 =[];
 
         axios
-        .get('http://localhost/ugc/getUniversityCount.php')
+        .get('http://192.168.22.130/getUniversityCount.php')
         .then(response=>{
            // console.log('data')
            // console.log(response.data);
@@ -31,7 +31,7 @@ const UniDataBarChart =() =>{
 
            // console.log(uniName, uniCount);
 
-            return axios.get('http://localhost/ugc/getUniversityActiveCount.php')
+            return axios.get('http://192.168.22.130/getUniversityActiveCount.php')
         })
         .then(response =>{
           for(const dataObj of response.data ){
@@ -45,7 +45,7 @@ const UniDataBarChart =() =>{
                 uniActiveCount2[i]=uniActiveCount[ii];
             }
         
-            return axios.get('http://localhost/ugc/getUniversityViolatedCount.php')
+            return axios.get('http://192.168.22.130/getUniversityViolatedCount.php')
         })
         .then(response =>{    
         for(const dataObj of response.data ){
@@ -60,7 +60,7 @@ const UniDataBarChart =() =>{
             
         }
 
-        return axios.get('http://localhost/ugc/getUniversityInactiveCount.php')
+        return axios.get('http://192.168.22.130/getUniversityInactiveCount.php')
     })
     .then (response =>{
         for(const dataObj of response.data ){

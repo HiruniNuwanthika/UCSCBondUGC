@@ -406,8 +406,8 @@ export default class Insert extends Component{
        console.log(obj1);
        console.log(obj2);
        axios.all([
-        axios.post('http://localhost/ugc/insert.php',obj1),
-        axios.post('http://localhost/ugc/insertSurety.php',obj2)
+        axios.post('http://192.168.22.130/insert.php',obj1),
+        axios.post('http://192.168.22.130/insertSurety.php',obj2)
        ]) 
         .then(res=>{
             this.setState({alertMessage:'success'})

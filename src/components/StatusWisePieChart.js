@@ -32,7 +32,7 @@ const StatusWisePieChart =() =>{
         let count =[];
 
         axios
-        .get('http://localhost/ugc/getByStatus.php')
+        .get('http://192.168.22.130/getByStatus.php')
         .then(response=>{
            // console.log('data')
            // console.log(response.data);
